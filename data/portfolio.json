@@ -1,0 +1,129 @@
+{
+  "info": {
+    "title": "Harsh's Developer API",
+    "version": "v3.2.0",
+    "baseUrl": "https://harsh.dev/api",
+    "description": "Fullstack engineer specializing in backend systems. 6+ years of experience in Java, Spring Boot, AWS, and CI/CD."
+  },
+  "profile": {
+    "name": "Harsh Raj",
+    "role": "Senior Software Engineer (Backend-Focused)",
+    "location": "Bangalore, India",
+    "email": "rajharsh1997@gmail.com",
+    "phone": "(+91) 9845916943",
+    "github": "github.com/rajharsh1997",
+    "linkedin": "linkedin.com/in/rajharsh1997",
+    "focus": ["Java", "Spring Boot", "AWS", "Node.js", "CI/CD", "Microservices"],
+    "open_to": "Exciting backend/fullstack opportunities",
+    "tagline": "I build systems that scale.",
+    "stats": {
+      "experience": "6+ Years",
+      "projects": "10+",
+      "certifications": "1",
+      "languages": "3"
+    }
+  },
+  "skills": {
+    "backend": {
+      "label": "Backend",
+      "color": "primary",
+      "items": ["Java", "Spring Boot", "Node.js", "Express", "REST APIs", "Microservices", "J2EE"]
+    },
+    "cloud_devops": {
+      "label": "Cloud & DevOps",
+      "color": "cloud",
+      "items": ["AWS (EC2, S3, Lambda, RDS)", "ECS", "ECR", "API Gateway", "Docker", "CI/CD Pipelines", "GitHub Actions", "Jenkins", "Terragrunt"]
+    },
+    "databases": {
+      "label": "Databases",
+      "color": "db",
+      "items": ["Oracle SQL", "DynamoDB", "PostgreSQL", "MySQL", "Redis", "MongoDB", "H2"]
+    },
+    "frontend": {
+      "label": "Frontend",
+      "color": "fe",
+      "items": ["React.js", "HTML/CSS", "JavaScript", "Redux"]
+    },
+    "tools": {
+      "label": "Tools & OS",
+      "color": "tool",
+      "items": ["Git", "Maven", "Postman", "IntelliJ IDEA", "MacOS", "Linux"]
+    }
+  },
+  "experience": [
+    {
+      "company": "Tricon Infotech",
+      "role": "Senior Software Engineer",
+      "duration": "Jan 2021 – Present",
+      "client": "McGrawHill (Full Stack Engineer + DevOps)",
+      "highlights": [
+        "Architected and developed scalable backend microservices using Java/J2EE and Spring Boot, ensuring high availability and fault tolerance",
+        "Led migration from legacy Java 8 to Java 17 across multiple services",
+        "Designed and optimized database schemas in Oracle SQL for transactional integrity and utilized DynamoDB for high-throughput NoSQL data storage",
+        "Contributed to the design of an application consolidating text/doc files into a single PDF for enhanced data management",
+        "Designed RESTful APIs adhering to industry standards, handling JSON payloads for seamless communication between frontend and backend services",
+        "Led Elastic Beanstalk to Elastic Container Services (ECS) migration, improving scalability and resource efficiency",
+        "Optimized cloud costs and improved application speed by transitioning multiple front-end Angular applications to S3-based hosting",
+        "Implemented Sonar integrations in the CI/CD pipeline, ensuring consistent gold standard code quality across 15 services"
+      ],
+      "tech_stack": ["Java", "Spring Boot", "AWS", "Oracle SQL", "DynamoDB", "Docker", "CI/CD"]
+    },
+    {
+      "company": "Tata Consultancy Services",
+      "role": "Assistant System Engineer",
+      "duration": "July 2019 – Jan 2021",
+      "highlights": [
+        "Worked on SPA React application, utilized Context and Redux as state management tools in writing components",
+        "Collaborated in an agile team environment to deliver frontend features"
+      ],
+      "tech_stack": ["React.js", "JavaScript", "Redux", "HTML/CSS"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "pdf-consolidation",
+      "name": "PDF Consolidation Service",
+      "description": "Designed and built an application that consolidates multiple text/doc files into a single PDF for enhanced data management and reporting.",
+      "tech_stack": ["Java", "Spring Boot", "AWS Lambda", "S3"],
+      "github": "https://github.com/rajharsh1997",
+      "status": "production"
+    },
+    {
+      "id": "ecs-migration",
+      "name": "ECS Migration Platform",
+      "description": "Led migration from Elastic Beanstalk to ECS, improving scalability, resource efficiency, and deployment reliability across the infrastructure.",
+      "tech_stack": ["AWS ECS", "Docker", "Terraform", "CI/CD"],
+      "github": "https://github.com/rajharsh1997",
+      "status": "production"
+    },
+    {
+      "id": "code-quality-pipeline",
+      "name": "Sonar CI/CD Integration",
+      "description": "Implemented SonarQube integrations in the CI/CD pipeline, ensuring consistent gold-standard code quality across 15+ microservices.",
+      "tech_stack": ["Jenkins", "SonarQube", "GitHub Actions", "Docker"],
+      "github": "https://github.com/rajharsh1997",
+      "status": "production"
+    },
+    {
+      "id": "s3-hosting-migration",
+      "name": "S3 Hosting Optimization",
+      "description": "Optimized cloud costs and improved application speed by transitioning multiple frontend Angular applications from EC2 to S3-based static hosting with CloudFront.",
+      "tech_stack": ["AWS S3", "CloudFront", "Angular", "Terraform"],
+      "github": "https://github.com/rajharsh1997",
+      "status": "production"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Visvesvaraya Technological University (VTU)",
+      "degree": "Bachelor of Engineering (Computer Science)",
+      "duration": "July 2015 – June 2019",
+      "location": "Bangalore"
+    }
+  ],
+  "certifications": [
+    "Oracle Certified Associate, Java SE 8 Programmer"
+  ],
+  "interests": ["Football", "Chess", "Gaming"],
+  "languages": ["English", "Hindi"]
+}
