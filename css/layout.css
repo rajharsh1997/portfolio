@@ -1,10 +1,9 @@
 /* ============================================
-   layout.css — Page structure
+   layout.css — Page structure & grid layout
    ============================================ */
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -13,34 +12,167 @@ body {
   min-height: 100vh;
 }
 
-.ms-main {
+/* Main content area */
+.sw-main {
   flex: 1;
   width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-6) var(--space-16);
+}
+
+/* Sticky topbar with frosted glass */
+.sw-topbar {
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Info block responsive */
+.sw-info-block__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+
+/* Servers bar responsive */
+.sw-servers-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Tag groups spacing */
+.sw-tag-group:first-child {
+  margin-top: 0;
+}
+
+/* Endpoint body content padding */
+.sw-endpoint__content {
+  padding: var(--space-4) var(--space-5);
+}
+
+/* About layout */
+.sw-about-layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* Stats grid */
+.sw-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  min-width: 200px;
+}
+
+/* Skills grid */
+.sw-skills-grid {
+  background: var(--bg-code);
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* Projects grid */
+.sw-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--bg-code);
+}
+
+/* Contact layout */
+.sw-contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+/* Footer */
+.sw-footer {
+  text-align: center;
+  padding: var(--space-10) var(--space-6);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: var(--space-8);
 }
 
 /* ============================================
    RESPONSIVE
    ============================================ */
 
+@media (max-width: 1024px) {
+  .sw-about-layout {
+    grid-template-columns: 1fr;
+  }
+  .sw-contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
-  .ms-main { padding: 0 var(--space-4) var(--space-10); }
-  .ms-hero__title { font-size: 32px !important; }
-  .ms-endpoint__summary { display: none; }
-  .ms-tag-desc { display: none; }
-  .ms-contact-layout { grid-template-columns: 1fr !important; }
-  .ms-about-stats { grid-template-columns: repeat(2, 1fr) !important; }
-  .ms-projects-grid { grid-template-columns: 1fr !important; }
-  .ms-nav__links { display: none; }
-  .ms-info-links { flex-wrap: wrap; gap: var(--space-2); }
+  .sw-api-title {
+    font-size: 20px;
+  }
+  .sw-endpoint__summary {
+    display: none;
+  }
+  .sw-main {
+    padding: var(--space-4) var(--space-3);
+  }
+  .sw-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sw-projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .sw-info-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .sw-info-separator {
+    display: none;
+  }
+  .sw-tag-name {
+    font-size: 15px;
+  }
+  .sw-tag-description {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
-  .ms-nav__inner { padding: 0 var(--space-4); }
-  .ms-hero { padding: var(--space-10) var(--space-4) var(--space-8); }
-  .ms-endpoint__header { padding: var(--space-3) var(--space-4); }
-  .ms-method { font-size: 10px; padding: 2px 7px; min-width: 42px; }
-  .ms-path { font-size: 12px; }
+  .sw-topbar__inner {
+    padding: 0 var(--space-3);
+  }
+  .sw-info-block__inner {
+    padding: 0 var(--space-3);
+  }
+  .sw-servers-bar__inner {
+    padding: 0 var(--space-3);
+  }
+  .sw-endpoint__header {
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+  }
+  .sw-path {
+    font-size: 12px;
+  }
+  .sw-method {
+    font-size: 10px;
+    padding: 2px 7px;
+    min-width: 46px;
+  }
+  .sw-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    min-width: unset;
+  }
+  .sw-modal {
+    padding: var(--space-5);
+  }
 }
