@@ -80,6 +80,10 @@
   --shadow-lg:      0 8px 32px rgba(0,0,0,0.65);
   --glow-green:     0 0 20px rgba(74,222,128,0.1);
   --glow-blue:      0 0 20px rgba(96,165,250,0.1);
+
+  --glow-green-strong: 0 0 25px rgba(73, 204, 144, 0.35), inset 0 0 10px rgba(73, 204, 144, 0.1);
+  --glow-orange-strong: 0 0 25px rgba(252, 161, 48, 0.35), inset 0 0 10px rgba(252, 161, 48, 0.1);
+  --glow-blue-strong: 0 0 25px rgba(97, 175, 254, 0.35), inset 0 0 10px rgba(97, 175, 254, 0.1);
 }
 
 /* ---- LIGHT THEME ---- */
@@ -130,4 +134,8 @@
   --shadow-lg:      0 8px 32px rgba(0,0,0,0.12);
   --glow-green:     0 0 20px rgba(22,163,74,0.06);
   --glow-blue:      0 0 20px rgba(37,99,235,0.06);
+
+  --glow-green-strong: 0 0 20px rgba(22, 163, 74, 0.2), inset 0 0 10px rgba(22, 163, 74, 0.05);
+  --glow-orange-strong: 0 0 20px rgba(217, 119, 6, 0.2), inset 0 0 10px rgba(217, 119, 6, 0.05);
+  --glow-blue-strong: 0 0 20px rgba(37, 99, 235, 0.2), inset 0 0 10px rgba(37, 99, 235, 0.05);
 }

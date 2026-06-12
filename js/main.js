@@ -104,49 +104,25 @@
 
   function renderExperience(data) {
     const exp = data.experience;
-    return exp.map(job => {
-      const highlights = job.highlights.map(h => `<li>${escapeHtml(h)}</li>`).join('');
-      const techs = job.tech_stack.map(t =>
-        `<span class="sw-project-tag">${escapeHtml(t)}</span>`
-      ).join('');
+    const formattedExp = exp.map(job => ({
+      company: job.company,
+      role: job.role,
+      description: job.highlights.join(" "),
+      tech_stack: job.tech_stack
+    }));
 
-      return `
-        <div class="sw-endpoint method-get">
-          <div class="sw-endpoint__header">
-            <span class="sw-method sw-method--get">GET</span>
-            <span class="sw-path">/experience/${escapeHtml(job.company.toLowerCase().replace(/\s+/g, '-'))}</span>
-            <span class="sw-endpoint__summary">${escapeHtml(job.role)} — ${escapeHtml(job.duration)}</span>
-            <svg class="sw-endpoint-chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-          </div>
-          <div class="sw-endpoint__body">
-            <div class="sw-endpoint__content">
-              <div class="sw-response-section">
-                <div class="sw-response-code">
-                  <span class="sw-status-badge sw-status--200">200</span>
-                  <span class="sw-status-desc">OK — Experience details</span>
-                </div>
-              </div>
-              <div class="sw-section-title">Response body</div>
-              <div class="sw-response-body">
-                <div class="sw-response-body__header">
-                  <span class="sw-response-body__label">Response</span>
-                  <span class="sw-content-type">application/json</span>
-                </div>
-                <div class="sw-json-block">
-                  <pre>${formatJson({
-                    company: job.company,
-                    role: job.role,
-                    duration: job.duration,
-                    highlights: job.highlights,
-                    tech_stack: job.tech_stack
-                  })}</pre>
-                </div>
-              </div>
-            </div>
-          </div>
+    return `
+      <div class="sw-section-title">Response body</div>
+      <div class="sw-response-body">
+        <div class="sw-response-body__header">
+          <span class="sw-response-body__label">Response</span>
+          <span class="sw-content-type">application/json</span>
         </div>
-      `;
-    }).join('');
+        <div class="sw-json-block">
+          <pre>${formatJson(formattedExp)}</pre>
+        </div>
+      </div>
+    `;
   }
 
   function renderProjects(data) {
@@ -182,6 +158,23 @@
           <span class="sw-content-type">application/json</span>
         </div>
         <div class="sw-projects-grid">${cards}</div>
+      </div>
+    `;
+  }
+
+  function renderResume() {
+    return `
+      <div class="sw-section-title">Response body</div>
+      <div class="sw-response-body" style="padding: var(--space-6); text-align: center; background: var(--bg-code);">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="var(--accent-blue)" style="margin-bottom: var(--space-3); opacity: 0.8;">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+        </svg>
+        <div style="font-family: var(--font-mono); font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-2);">resume@Harsh.docx</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: var(--space-5);">Document Size: 1.5 MB</div>
+        <a href="resume@Harsh.docx" download="resume@Harsh.docx" class="sw-trybtn" style="text-decoration: none; margin-bottom: 0; padding: 8px 24px; font-size: 14px; display: inline-flex;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 8px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
+          Download Document
+        </a>
       </div>
     `;
   }
@@ -250,11 +243,12 @@
   // ===================== TAG GROUP BUILDER =====================
 
   const tagGroups = [
-    { name: 'about', description: 'About Me', iconClass: 'sw-tag-icon--about', method: 'GET', path: '/me', renderer: renderAbout },
-    { name: 'skills', description: 'Technical Skills', iconClass: 'sw-tag-icon--skills', method: 'GET', path: '/skills', renderer: renderSkills },
-    { name: 'experience', description: 'Work Experience', iconClass: 'sw-tag-icon--experience', method: 'GET', path: '/experience', renderer: renderExperience },
-    { name: 'projects', description: 'Projects', iconClass: 'sw-tag-icon--projects', method: 'GET', path: '/projects', renderer: renderProjects },
-    { name: 'contact', description: 'Contact Me', iconClass: 'sw-tag-icon--contact', method: 'POST', path: '/contact', renderer: renderContact }
+    { name: 'about', description: 'Retrieve personal overview and professional summary.', method: 'GET', path: '/me', renderer: renderAbout },
+    { name: 'skills', description: 'List technical skills, tools, and certifications.', method: 'GET', path: '/skills', renderer: renderSkills },
+    { name: 'experience', description: 'Fetch professional work history and key achievements.', method: 'GET', path: '/experience', renderer: renderExperience },
+    { name: 'projects', description: 'Get details of featured backend projects and contributions.', method: 'GET', path: '/projects', renderer: renderProjects },
+    { name: 'resume', description: 'Download a copy of my professional resume.', method: 'GET', path: '/resume/download', renderer: renderResume },
+    { name: 'contact', description: 'Send a message or inquiry directly to Harsh.', method: 'POST', path: '/contact', renderer: renderContact }
   ];
 
   function buildTagGroups(data) {
@@ -262,81 +256,37 @@
     container.innerHTML = '';
 
     tagGroups.forEach((group, idx) => {
-      const groupEl = createElement('div', 'sw-tag-group is-collapsed');
-      groupEl.style.animationDelay = `${0.05 + idx * 0.05}s`;
-
-      const header = createElement('div', 'sw-tag-header');
-      header.innerHTML = `
-        <div class="sw-tag-header__left">
-          <span class="sw-tag-icon ${group.iconClass}"></span>
-          <span class="sw-tag-name">${group.name}</span>
-          <span class="sw-tag-description">${group.description}</span>
-        </div>
-        <svg class="sw-chevron-icon" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M7 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none"/>
-        </svg>
-      `;
-
-      const endpoints = createElement('div', 'sw-tag-endpoints');
-
-      // For about, skills, contact — single endpoint
-      if (group.name === 'about' || group.name === 'skills' || group.name === 'contact') {
-        const methodClass = group.method === 'GET' ? 'method-get' : 'method-post';
-        const methodBadgeClass = group.method === 'GET' ? 'sw-method--get' : 'sw-method--post';
-        const ep = createElement('div', `sw-endpoint ${methodClass} is-open`);
-        ep.innerHTML = `
-          <div class="sw-endpoint__header">
-            <span class="sw-method ${methodBadgeClass}">${group.method}</span>
-            <span class="sw-path">${group.path}</span>
-            <span class="sw-endpoint__summary">${group.description}</span>
-            <svg class="sw-endpoint-chevron" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-            </svg>
-          </div>
-          <div class="sw-endpoint__body">
-            <div class="sw-endpoint__content">
-              <div class="sw-response-section">
-                <div class="sw-response-code">
-                  <span class="sw-status-badge sw-status--200">200</span>
-                  <span class="sw-status-desc">OK</span>
-                </div>
-              </div>
-              ${group.renderer(data)}
-            </div>
-          </div>
-        `;
-        endpoints.appendChild(ep);
-      } else {
-        // For experience and projects — multiple sub-endpoints
-        const methodClass = 'method-get';
-        const ep = createElement('div', `sw-endpoint ${methodClass} is-open`);
-        ep.innerHTML = `
-          <div class="sw-endpoint__header">
-            <span class="sw-method sw-method--get">GET</span>
-            <span class="sw-path">${group.path}</span>
-            <span class="sw-endpoint__summary">List all ${group.name}</span>
-            <svg class="sw-endpoint-chevron" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-            </svg>
-          </div>
-          <div class="sw-endpoint__body">
-            <div class="sw-endpoint__content">
-              <div class="sw-response-section">
-                <div class="sw-response-code">
-                  <span class="sw-status-badge sw-status--200">200</span>
-                  <span class="sw-status-desc">OK</span>
-                </div>
-              </div>
-              ${group.renderer(data)}
-            </div>
-          </div>
-        `;
-        endpoints.appendChild(ep);
+      const methodClass = group.method === 'GET' ? 'method-get' : 'method-post';
+      const methodBadgeClass = group.method === 'GET' ? 'sw-method--get' : 'sw-method--post';
+      
+      const ep = createElement('div', `sw-endpoint ${methodClass}`);
+      if (group.name === 'experience') {
+        ep.classList.add('is-open');
       }
+      ep.style.animationDelay = `${0.05 + idx * 0.05}s`;
 
-      groupEl.appendChild(header);
-      groupEl.appendChild(endpoints);
-      container.appendChild(groupEl);
+      ep.innerHTML = `
+        <div class="sw-endpoint__header">
+          <span class="sw-method ${methodBadgeClass}">${group.method}</span>
+          <span class="sw-path">${group.path}</span>
+          <span class="sw-endpoint__summary">${group.description}</span>
+          <svg class="sw-endpoint-chevron" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="sw-endpoint__body">
+          <div class="sw-endpoint__content">
+            <div class="sw-response-section" style="${group.name === 'contact' ? 'display:none;' : ''}">
+              <div class="sw-response-code">
+                <span class="sw-status-badge sw-status--200">200</span>
+                <span class="sw-status-desc">OK</span>
+              </div>
+            </div>
+            ${group.renderer(data)}
+          </div>
+        </div>
+      `;
+      container.appendChild(ep);
     });
   }
 

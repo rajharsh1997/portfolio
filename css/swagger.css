@@ -277,23 +277,49 @@ body {
 
 /* ===================== ENDPOINT ===================== */
 .sw-endpoint {
-  border-bottom: 1px solid var(--border-subtle);
-  background: var(--bg-base);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.4s ease forwards;
 }
-.sw-endpoint:last-child { border-bottom: none; }
+.sw-endpoint:nth-child(1) { animation-delay: 0.05s; }
+.sw-endpoint:nth-child(2) { animation-delay: 0.10s; }
+.sw-endpoint:nth-child(3) { animation-delay: 0.15s; }
+.sw-endpoint:nth-child(4) { animation-delay: 0.20s; }
+.sw-endpoint:nth-child(5) { animation-delay: 0.25s; }
+
+.sw-endpoint:hover { border-color: var(--border-strong); }
+
+.sw-endpoint.is-open { background: var(--bg-panel); }
+
+.sw-endpoint.method-get.is-open {
+  border-color: rgba(73, 204, 144, 0.4);
+  box-shadow: var(--glow-green-strong);
+}
+
+.sw-endpoint.method-post.is-open {
+  border-color: rgba(252, 161, 48, 0.4);
+  box-shadow: var(--glow-orange-strong);
+}
 
 .sw-endpoint__header {
   display: flex;
   align-items: center;
   gap: 0;
-  padding: 0;
+  padding: var(--space-3) var(--space-4);
   cursor: pointer;
   user-select: none;
   transition: background var(--transition-fast);
 }
-.sw-endpoint__header:hover { background: var(--bg-elevated); }
+.sw-endpoint__header:hover { background: var(--bg-hover); }
 .sw-endpoint.is-open .sw-endpoint__header {
   background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .sw-endpoint-chevron {
@@ -309,14 +335,14 @@ body {
 /* Method badges — authentic Swagger pill style */
 .sw-method {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  padding: 5px 12px;
-  min-width: 58px;
+  padding: 5px 14px;
+  min-width: 65px;
   text-align: center;
   letter-spacing: 0.5px;
   flex-shrink: 0;
-  border-radius: 0;
+  border-radius: var(--radius-md);
   color: #fff;
   border: none;
 }
