@@ -4,12 +4,7 @@
 (function () {
   'use strict';
 
-  // EmailJS configuration — user must replace with their own keys
-  const EMAILJS_CONFIG = {
-    serviceId: 'service_default',
-    templateId: 'template_default',
-    publicKey: 'YOUR_PUBLIC_KEY'
-  };
+
 
   let isFormActive = false;
 
@@ -60,39 +55,42 @@
         `    "message": "${message}"\n` +
         `  }'`;
 
-      // Try to send via EmailJS, fallback to mock
+      // Try to send via FormSubmit.co
       try {
-        if (window.emailjs && EMAILJS_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY') {
-          await window.emailjs.send(
-            EMAILJS_CONFIG.serviceId,
-            EMAILJS_CONFIG.templateId,
-            { name, email, subject, message },
-            EMAILJS_CONFIG.publicKey
-          );
-        }
-        // Mock success response
-        setTimeout(() => {
+        const response = await fetch("https://formsubmit.co/ajax/rajharsh1997@gmail.com", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
+            _captcha: "false" // Disable recaptcha for seamless API feel
+          })
+        });
+
+        if (response.ok) {
           responseBody.innerHTML = formatJson({
             status: 200,
             message: "Message sent successfully!",
             data: { name, email, subject }
           });
-          responsePanel.classList.add('is-visible');
-          spinner.classList.remove('is-spinning');
-          executeBtn.disabled = false;
-        }, 800);
+        } else {
+          throw new Error('Network response was not ok');
+        }
       } catch (err) {
-        // Still show success UI even if email fails
-        setTimeout(() => {
-          responseBody.innerHTML = formatJson({
-            status: 200,
-            message: "Message received! (Email service not configured)",
-            data: { name, email, subject }
-          });
-          responsePanel.classList.add('is-visible');
-          spinner.classList.remove('is-spinning');
-          executeBtn.disabled = false;
-        }, 800);
+        responseBody.innerHTML = formatJson({
+          status: 500,
+          error: "Failed to send message. Please try again later.",
+          details: err.message
+        });
+      } finally {
+        responsePanel.classList.add('is-visible');
+        spinner.classList.remove('is-spinning');
+        executeBtn.disabled = false;
       }
     });
   }

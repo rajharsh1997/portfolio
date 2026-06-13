@@ -260,9 +260,7 @@
       const methodBadgeClass = group.method === 'GET' ? 'sw-method--get' : 'sw-method--post';
       
       const ep = createElement('div', `sw-endpoint ${methodClass}`);
-      if (group.name === 'experience') {
-        ep.classList.add('is-open');
-      }
+
       ep.style.animationDelay = `${0.05 + idx * 0.05}s`;
 
       ep.innerHTML = `
@@ -344,7 +342,6 @@
       // Set header info
       document.getElementById('apiTitle').textContent = data.info.title;
       document.getElementById('versionBadge').textContent = data.info.version;
-      document.getElementById('baseUrl').textContent = data.info.baseUrl;
 
       // Render tag groups
       buildTagGroups(data);

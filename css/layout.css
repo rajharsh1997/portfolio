@@ -131,11 +131,6 @@ body {
     grid-template-columns: 1fr;
   }
   .sw-info-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-2);
-  }
-  .sw-info-separator {
     display: none;
   }
   .sw-tag-name {
