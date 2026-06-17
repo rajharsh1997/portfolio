@@ -46,7 +46,7 @@
 
       // Build curl command display
       curlBlock.textContent =
-        `curl -X POST https://harsh.dev/api/contact \\\n` +
+        `curl -X POST https://harshcodes.vercel.app/contact \\\n` +
         `  -H "Content-Type: application/json" \\\n` +
         `  -d '{\n` +
         `    "name": "${name}",\n` +

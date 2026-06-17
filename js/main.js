@@ -169,9 +169,9 @@
         <svg viewBox="0 0 24 24" width="48" height="48" fill="var(--accent-blue)" style="margin-bottom: var(--space-3); opacity: 0.8;">
           <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
         </svg>
-        <div style="font-family: var(--font-mono); font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-2);">resume@Harsh.docx</div>
+        <div style="font-family: var(--font-mono); font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-2);">resume@harsh.pdf</div>
         <div style="font-size: 13px; color: var(--text-muted); margin-bottom: var(--space-5);">Document Size: 1.5 MB</div>
-        <a href="resume@Harsh.docx" download="resume@Harsh.docx" class="sw-trybtn" style="text-decoration: none; margin-bottom: 0; padding: 8px 24px; font-size: 14px; display: inline-flex;">
+        <a href="resume@harsh.pdf" download="resume@harsh.pdf" class="sw-trybtn" style="text-decoration: none; margin-bottom: 0; padding: 8px 24px; font-size: 14px; display: inline-flex;">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 8px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
           Download Document
         </a>
@@ -224,7 +224,7 @@
         </div>
         <div class="sw-response-panel" id="responsePanel">
           <div class="sw-section-title">Curl</div>
-          <div class="sw-curl-block" id="curlBlock">curl -X POST https://harsh.dev/api/contact</div>
+          <div class="sw-curl-block" id="curlBlock">curl -X POST https://harshcodes.vercel.app/contact</div>
           <div class="sw-section-title">Response</div>
           <div class="sw-response-body">
             <div class="sw-response-body__header">
