@@ -555,3 +555,14 @@
 }
 .sw-footer a { color: var(--accent-blue); transition: opacity 0.2s; }
 .sw-footer a:hover { opacity: 0.8; }
+
+/* ── Responsive Mobile ── */
+@media (max-width: 640px) {
+  .sw-info-block { padding: var(--space-6) var(--space-3); }
+  .sw-servers-bar { padding: var(--space-3) var(--space-3); }
+  .sw-servers-bar__inner { flex-wrap: wrap; gap: var(--space-2); }
+  .sw-server-url { word-break: break-all; font-size: 11px; }
+  .sw-main { padding: var(--space-3); }
+  .sw-endpoint__header { padding: var(--space-3); gap: var(--space-2); }
+  .sw-path { font-size: 12px; }
+}
