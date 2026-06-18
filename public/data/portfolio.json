@@ -7,15 +7,24 @@
   },
   "profile": {
     "name": "Harsh Raj",
-    "role": "Senior Software Engineer (Backend-Focused)",
+    "role": "Senior Software Engineer — Architecting Scalable Backend Systems",
     "location": "Bangalore-560035, India",
     "email": "rajharsh1997@gmail.com",
     "phone": "(+91) 9845916943",
     "github": "https://github.com/rajharsh1997",
     "linkedin": "https://linkedin.com/in/rajharsh1997",
-    "focus": ["Java", "Spring Boot", "AWS", "Node.js", "CI/CD", "DevOps"],
+    "twitter": "https://x.com/rajharsh1997",
+    "focus": [
+      "Java",
+      "Spring Boot",
+      "AWS",
+      "Node.js",
+      "CI/CD",
+      "DevOps"
+    ],
     "open_to": "Exciting backend/fullstack opportunities",
     "tagline": "I build systems that scale.",
+    "bio": "6+ years of experience engineering high-availability, scalable backend systems. Expert in microservices architecture (Java/Spring Boot, NodeJs) and AWS cloud infrastructure, optimizing P99 latency to sub-100ms. Led major system refactors including Java 8→17 migrations and developed robust Kafka-based async event pipelines for high-throughput EdTech and FinTech platforms.",
     "stats": {
       "experience": "6+ Years",
       "certifications": "1",
@@ -26,22 +35,64 @@
     "backend": {
       "label": "Backend & Frameworks",
       "color": "primary",
-      "items": ["Java", "Javascript", "Spring", "NodeJs", "Express", "Terragrunt"]
+      "items": [
+        "Java",
+        "Javascript",
+        "Spring",
+        "NodeJs",
+        "Express",
+        "Terragrunt",
+        "Tauri"
+      ]
     },
     "cloud": {
       "label": "Cloud",
       "color": "cloud",
-      "items": ["AWS", "ECS", "ECR", "API Gateway", "DynamoDB", "S3", "CloudFront"]
+      "items": [
+        "AWS",
+        "ECS",
+        "ECR",
+        "API Gateway",
+        "DynamoDB",
+        "S3",
+        "CloudFront"
+      ]
     },
     "devops": {
       "label": "DevOps & Tools",
       "color": "tool",
-      "items": ["Docker", "CI/CD", "GitHub Actions", "Jenkins", "Git", "MacOS", "Linux"]
+      "items": [
+        "Docker",
+        "Terraform",
+        "CI/CD",
+        "GitHub Actions",
+        "Jenkins",
+        "Git",
+        "MacOS",
+        "Linux"
+      ]
     },
     "databases": {
       "label": "Databases",
       "color": "db",
-      "items": ["DynamoDB", "Oracle SQL", "MongoDB"]
+      "items": [
+        "DynamoDB",
+        "Oracle SQL",
+        "MongoDB",
+        "Redis",
+        "Postgres"
+      ]
+    },
+    "ai": {
+      "label": "Gen AI & LLMs",
+      "color": "primary",
+      "items": [
+        "Gen AI",
+        "LLMs",
+        "LangChain",
+        "OpenAI",
+        "Prompt Engineering"
+      ]
     }
   },
   "experience": [
@@ -52,7 +103,7 @@
       "client": "McGrawHill (Full Stack Engineer + DevOps)",
       "highlights": [
         "Architected and developed scalable backend microservices using Java/J2EE and Spring Boot, ensuring high availability and fault tolerance.",
-        "Helped in migrating from legacy Java 8 to 17.",
+        "Led migration from legacy Java 8 to 17.",
         "Designed and optimized database schemas in Oracle SQL for transactional integrity and utilized DynamoDB for high-throughput NoSQL data storage.",
         "Contributed to the design of an application consolidating text/doc files into a single PDF for enhanced data management.",
         "Designed RESTful APIs adhering to industry standards, handling JSON payloads for seamless communication between frontend and backend services.",
@@ -60,7 +111,14 @@
         "Optimized cloud costs and improved application speed by transitioning multiple front-end Angular applications to S3-based hosting.",
         "Implemented Sonar integrations in the CI/CD pipeline, ensuring consistent gold standard code quality across 15 services."
       ],
-      "tech_stack": ["Java 17", "Spring Boot", "AWS ECS", "Oracle SQL", "DynamoDB", "CI/CD"]
+      "tech_stack": [
+        "Java 17",
+        "Spring Boot",
+        "AWS ECS",
+        "Oracle SQL",
+        "DynamoDB",
+        "CI/CD"
+      ]
     },
     {
       "company": "Tata Consultancy Services",
@@ -69,15 +127,49 @@
       "highlights": [
         "Worked on SPA React application, utilized context and redux as a state managing tool in writing components."
       ],
-      "tech_stack": ["React.js", "Redux", "JavaScript"]
+      "tech_stack": [
+        "React.js",
+        "Redux",
+        "JavaScript"
+      ]
     }
   ],
   "projects": [
     {
+      "id": "aws-drift-detector",
+      "name": "AWS Drift Detector",
+      "description": "Automated serverless system with a RAG-powered Gen AI component to detect, interpret, and report infrastructure drift across AWS environments, ensuring configuration consistency.",
+      "tech_stack": [
+        "AWS",
+        "Python",
+        "Terraform",
+        "Serverless",
+        "Gen AI",
+        "RAG"
+      ],
+      "github": "https://github.com/rajharsh1997",
+      "status": "production"
+    },
+    {
+      "id": "deltadevx",
+      "name": "DeltaDevX",
+      "description": "A developer-focused tool built with Tauri and React offering various utilities such as SQL formatting, JSON diffing, and tokenization.",
+      "tech_stack": [
+        "Tauri",
+        "React",
+        "Rust"
+      ],
+      "github": "https://github.com/rajharsh1997/deltadevx/",
+      "status": "production"
+    },
+    {
       "id": "pdf-consolidation",
       "name": "PDF Consolidation Service",
       "description": "Designed and built an application that consolidates multiple text/doc files into a single PDF for enhanced data management and reporting.",
-      "tech_stack": ["Java", "Spring Boot"],
+      "tech_stack": [
+        "Java",
+        "Spring Boot"
+      ],
       "github": "https://github.com/rajharsh1997",
       "status": "production"
     },
@@ -85,7 +177,10 @@
       "id": "ecs-migration",
       "name": "ECS Migration Platform",
       "description": "Led migration from Elastic Beanstalk to Elastic Container Services, improving scalability, resource efficiency, and deployment reliability.",
-      "tech_stack": ["AWS ECS", "Docker"],
+      "tech_stack": [
+        "AWS ECS",
+        "Docker"
+      ],
       "github": "https://github.com/rajharsh1997",
       "status": "production"
     },
@@ -93,7 +188,11 @@
       "id": "code-quality-pipeline",
       "name": "Sonar CI/CD Integration",
       "description": "Implemented SonarQube integrations in the CI/CD pipeline, ensuring consistent gold-standard code quality across 15 microservices.",
-      "tech_stack": ["Jenkins", "SonarQube", "GitHub Actions"],
+      "tech_stack": [
+        "Jenkins",
+        "SonarQube",
+        "GitHub Actions"
+      ],
       "github": "https://github.com/rajharsh1997",
       "status": "production"
     },
@@ -101,7 +200,10 @@
       "id": "s3-hosting-migration",
       "name": "S3 Hosting Optimization",
       "description": "Optimized cloud costs and improved application speed by transitioning multiple frontend Angular applications to S3-based static hosting.",
-      "tech_stack": ["AWS S3", "Angular"],
+      "tech_stack": [
+        "AWS S3",
+        "Angular"
+      ],
       "github": "https://github.com/rajharsh1997",
       "status": "production"
     }
@@ -117,6 +219,27 @@
   "certifications": [
     "Oracle Certified Associate, Java SE 8 Programmer"
   ],
-  "interests": ["Football", "Chess", "Gaming"],
-  "languages": ["English", "Hindi"]
+  "companies": [
+    "Cisco",
+    "McGrawHill",
+    "Tricon",
+    "Toorak Capital",
+    "TCS"
+  ],
+  "ticker": [
+    "Led Java migration across critical microservices",
+    "Kafka-based async event pipeline cuts inter-service latency by 40%",
+    "Achieved SOX and SOC 2 compliance for McGrawHill EdTech platform",
+    "Led ECS migration improving deployment reliability by 60%",
+    "Implemented SonarQube quality gates across 15 production services"
+  ],
+  "interests": [
+    "Football",
+    "Chess",
+    "Gaming"
+  ],
+  "languages": [
+    "English",
+    "Hindi"
+  ]
 }
