@@ -54,16 +54,18 @@ export default function RecruiterNav({ profile }) {
         </div>
       )}
 
-      <div className="rc-nav__right" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
+      <div className="rc-nav__right">
         {!isDevMode && (
           <button className="rc-contact-link" onClick={() => scrollTo('contact')}>contact-me</button>
         )}
-        <button 
-          className="theme-toggle" 
-          onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
-        >
-          {theme === 'dark' ? '🌙' : '☀️'}
-        </button>
+        {isDevMode && (
+          <button 
+            className="theme-toggle" 
+            onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
+          >
+            {theme === 'dark' ? '🌙' : '☀️'}
+          </button>
+        )}
         <ModeToggle />
       </div>
     </nav>
