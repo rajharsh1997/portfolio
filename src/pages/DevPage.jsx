@@ -4,7 +4,7 @@ import EndpointCard from '../components/swagger/EndpointCard';
 import JsonBlock, { formatJson } from '../components/swagger/JsonBlock';
 import SwaggerContact from '../components/swagger/SwaggerContact';
 import TypingText from '../components/swagger/TypingText';
-import ModeToggle from '../components/shared/ModeToggle';
+import RecruiterNav from '../components/recruiter/RecruiterNav';
 import resumePdf from '../assets/resume@Harsh.pdf';
 
 /* ── Auth Modal ── */
@@ -154,12 +154,6 @@ function ResumePanel() {
 export default function DevPage() {
   const { data, loading } = usePortfolioData();
   const [modalOpen, setModalOpen] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') ?? 'dark');
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
 
   if (loading || !data) {
     return (
@@ -177,24 +171,7 @@ export default function DevPage() {
 
   return (
     <div className="dev-page">
-      {/* Topbar */}
-      <header className="sw-topbar">
-        <div className="sw-topbar__inner">
-          <div className="sw-topbar__brand">
-            <svg viewBox="0 0 40 40" width="24" height="24">
-              <rect width="40" height="40" rx="4" fill="currentColor" opacity="0.2" />
-              <text x="20" y="27" fontFamily="monospace" fontSize="22" fontWeight="bold" fill="currentColor" textAnchor="middle">H</text>
-            </svg>
-            <span>Developer API</span>
-          </div>
-          <div className="sw-topbar__actions">
-            <button className="theme-toggle" onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}>
-              {theme === 'dark' ? '🌙' : '☀️'}
-            </button>
-            <ModeToggle />
-          </div>
-        </div>
-      </header>
+      <RecruiterNav profile={profile} />
 
       {/* Info Block */}
       <section className="sw-info-block">
