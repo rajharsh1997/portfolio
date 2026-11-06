@@ -9,7 +9,7 @@ export function usePortfolioData() {
 
   useEffect(() => {
     if (cache) return;
-    fetch('/data/portfolio.json')
+    fetch(`${import.meta.env.BASE_URL}data/portfolio.json`)
       .then(r => { if (!r.ok) throw new Error('Failed to load'); return r.json(); })
       .then(d => { cache = d; setData(d); setLoading(false); })
       .catch(e => { setError(e.message); setLoading(false); });
