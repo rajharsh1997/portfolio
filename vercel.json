@@ -5,6 +5,10 @@
       "destination": "/assets/$1"
     },
     {
+      "source": "/harsh/data/(.*)",
+      "destination": "/data/$1"
+    },
+    {
       "source": "/harsh",
       "destination": "/index.html"
     },
