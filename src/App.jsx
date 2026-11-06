@@ -4,7 +4,7 @@ import DevPage from './pages/DevPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/harsh">
       <Routes>
         <Route path="/" element={<RecruiterPage />} />
         <Route path="/dev" element={<DevPage />} />
