@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/harsh/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
       "source": "/harsh",
       "destination": "/index.html"
     },
